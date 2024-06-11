@@ -15,6 +15,7 @@ class CognitoUser:
         self.role = claims.get('custom:role')  # Custom attribute
 
 class CognitoAuthentication(authentication.BaseAuthentication):
+    
     def authenticate(self, request):
         id_token = request.headers.get('Authorization')
 

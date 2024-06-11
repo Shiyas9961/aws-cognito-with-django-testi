@@ -8,7 +8,7 @@ class IsAdminUser(BasePermission) :
             return False
         
 
-        return request.user.role == 'admin'
+        return request.user.role in ['admin']
     
 class IsUserUser(BasePermission) :
 
@@ -17,4 +17,4 @@ class IsUserUser(BasePermission) :
         if ( not request.user ) or ( not request.user.is_authenticated ):
             return False
         
-        return request.user.role == 'user'
+        return request.user.role in ['admin', 'user']

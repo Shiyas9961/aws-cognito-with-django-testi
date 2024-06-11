@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dotenv
 
+dotenv.load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,10 +44,10 @@ INSTALLED_APPS = [
     'article'
 ]
 
-COGNITO_USER_POOL_ID = 'ap-south-1_mjL8l3Hsx'
-COGNITO_APP_CLIENT_ID = '20peuvu5a2m2vmf7l75gd2ia3d'
-COGNITO_REGION = 'ap-south-1'
-COGNITO_APP_CLIENT_SECRET = 'b2ok073lv9nosrmt3krp19lbs6oocojad7bmfq13e2a3hao68p4'
+COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
+COGNITO_APP_CLIENT_ID = os.getenv('COGNITO_APP_CLIENT_ID')
+COGNITO_REGION = os.getenv('COGNITO_REGION')
+COGNITO_APP_CLIENT_SECRET = os.getenv('COGNITO_APP_CLIENT_SECRET')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
